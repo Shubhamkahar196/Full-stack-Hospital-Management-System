@@ -6,7 +6,7 @@ import fileUpload from 'express-fileupload';
 import { dbConnection } from './database/dbConnection.js';
 const app = express();
 dotenv.config({  // new 
-    path: './env'
+    path: '.env'
 })
 
 
