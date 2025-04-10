@@ -1,13 +1,14 @@
 import express from 'express'
-import { config } from 'dotenv';
+import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
 import { dbConnection } from './database/dbConnection.js';
 const app = express();
-config({
-    path: "./config/config.env"
-});
+dotenv.config({  // new 
+    path: './env'
+})
+
 
 app.use(cors({
     origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
