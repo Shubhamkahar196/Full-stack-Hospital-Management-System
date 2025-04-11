@@ -9,6 +9,10 @@ dotenv.config({  // new
     path: '.env'
 })
 
+// import path from "path"
+
+// dotenv.config({ path : path.resolve( '.env') });
+
 
 app.use(cors({
     origin: [process.env.FRONTEND_URL, process.env.DASHBOARD_URL],
