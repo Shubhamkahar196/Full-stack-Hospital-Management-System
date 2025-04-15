@@ -83,11 +83,14 @@ export const addNewAdmin = catchAsyncError(async (req, res, next) => {
       password,
       role: "Admin",
     });
-    generateToken(admin, "Admin registered!", 200, res);
+    
 
-    // res.status(200).json({
-    //   success: true,
-    //   message: "New Admin Registered",
-    //   admin,
-    // });
+    res.status(200).json({
+      success: true,
+      message: "New Admin Registered",
+      admin,
+    });
   });
+
+
+  
