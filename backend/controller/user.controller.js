@@ -51,6 +51,7 @@ export const login = catchAsyncError(async(req,res,next)=>{
 })
 
 // adding new Admin
+
 export const addNewAdmin = catchAsyncError(async (req, res, next) => {
     const { firstName, lastName, email, phone, nic, dob, gender, password } =
       req.body;
@@ -83,14 +84,20 @@ export const addNewAdmin = catchAsyncError(async (req, res, next) => {
       password,
       role: "Admin",
     });
-    
+    generateToken(admin, "New Admin Registered", 200, res);
 
-    res.status(200).json({
-      success: true,
-      message: "New Admin Registered",
-      admin,
-    });
+    // res.status(200).json({
+    //   success: true,
+    //   message: "New Admin Registered",
+    //   admin,
+    // });
   });
 
 
-  
+  export const getAllDoctors = catchAsyncError(async(req,res,next)=>{
+    const doctors = await User.find({role: "Doctor"});
+    res.status(200).json({
+        success: true,
+        doctors,
+    });
+  })
