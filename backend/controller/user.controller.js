@@ -101,3 +101,27 @@ export const addNewAdmin = catchAsyncError(async (req, res, next) => {
         doctors,
     });
   })
+
+  export const getUserDetails = catchAsyncError(async (req, res, next) => {
+    const user = req.user;
+    
+    
+    res.status(200).json({
+      success: true,
+      user,
+    });
+  });
+
+  
+  
+
+
+  export const logoutAdmin = catchAsyncError(async(req,res,next)=>{
+    res.status(200).cookies("adminToken", "",{
+      httpOnly: true,
+      expires: new Date(Date.now()),
+    }).json({
+      success: true,
+      message: "User Log out successfully!"
+    })
+  })
