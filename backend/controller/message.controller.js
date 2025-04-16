@@ -15,7 +15,7 @@ export const sendMessage =catchAsyncError (async (req, res, next) => {
   });
 });
 
-export const getAllMessage = (async (req, res, next) => {
+export const getAllMessage =catchAsyncError(async (req, res, next) => {
   const message = await Message.find();
   res.status(200).json({
     success: true,
