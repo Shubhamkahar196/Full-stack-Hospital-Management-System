@@ -104,8 +104,6 @@ export const addNewAdmin = catchAsyncError(async (req, res, next) => {
 
   export const getUserDetails = catchAsyncError(async (req, res, next) => {
     const user = req.user;
-    
-    
     res.status(200).json({
       success: true,
       user,
@@ -113,15 +111,23 @@ export const addNewAdmin = catchAsyncError(async (req, res, next) => {
   });
 
   
-  
-
 
   export const logoutAdmin = catchAsyncError(async(req,res,next)=>{
-    res.status(200).cookies("adminToken", "",{
+    res.status(200).cookie("adminToken", "",{
       httpOnly: true,
       expires: new Date(Date.now()),
     }).json({
       success: true,
-      message: "User Log out successfully!"
+      message: "Admin Log out successfully!"
+    })
+  })
+
+  export const logoutPatient = catchAsyncError(async(req,res,next)=>{
+    res.status(200).cookie("patientToken", "",{
+      httpOnly: true,
+      expires: new Date(Date.now()),
+    }).json({
+      success: true,
+      message: "Patient Log out successfully!"
     })
   })
