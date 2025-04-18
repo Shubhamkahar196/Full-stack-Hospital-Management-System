@@ -1,12 +1,15 @@
 import React from 'react'
-import { FcDepartment } from 'react-icons/fc'
+import Hero from '../components/Hero'
+import Biography from '../components/Biography'
+import Departments from '../components/Departments'
+import MessageForm from '../components/MessageForm'
 
 const Home = () => {
   return (
    <>
 
 
-   <Hero/>
+   <Hero title={"Welcome to MCMT Medical Institute"} imageUrl={"/hero.png"}/>
    <Biography/>
    <Departments/>
    <MessageForm/>
