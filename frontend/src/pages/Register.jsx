@@ -1,7 +1,8 @@
-import React,{useContext} from 'react'
-import {Context}  from '../main'
-import { useNavigate,Navigate,Link } from 'react-router-dom';
-import  axios from "axios"
+import axios from "axios";
+import React, { useContext, useState } from "react";
+import { toast } from "react-toastify";
+import { Context } from "../main";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
@@ -9,21 +10,21 @@ const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone , setPhone] = useState("");
+  const [phone, setPhone] = useState("");
   const [nic, setNic] = useState("");
   const [dob, setDob] = useState("");
   const [gender, setGender] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigateTO = useNavigate();
+  const navigateTo = useNavigate();
 
-  const handleRegister = async(e)=>{
+  const handleRegistration = async (e) => {
     e.preventDefault();
     try {
       await axios
         .post(
           "http://localhost:4000/api/v1/user/patient/register",
-          { email, password, confirmPassword, role: "Patient" },
+          { firstName, lastName, email, phone, nic, dob, gender, password, role: "Patient" },
           {
             withCredentials: true,
             headers: { "Content-Type": "application/json" },
@@ -33,51 +34,90 @@ const Register = () => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
           navigateTo("/");
+          setFirstName("");
+          setLastName("");
           setEmail("");
+          setPhone("");
+          setNic("");
+          setDob("");
+          setGender("");
           setPassword("");
-          setConfirmPassword("");
         });
     } catch (error) {
       toast.error(error.response.data.message);
     }
   };
 
-  if(isAuthenticated){
-    return <Navigate to={"/"}/>
+  if (isAuthenticated) {
+    return <Navigate to={"/"} />;
   }
+
   return (
-   <div className="container form-component register-form">
-    <h2>SignUp</h2>
-    <p>Please Sign Up to continue</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, laborum.</p>
-     
-
-     <form action="" onSubmit={handleRegister}>
-      <div>
-      <input type="text" name="firstName" value={firstName} onChange={ (e)=> setFirstName(e.target.value)} />
-      <input type="text" name="lastName" value={lastName} onChange={ (e)=> setLastName(e.target.value)} />
-      </div>
-
-      <div>
-      <input type="email" name="email" value={email} onChange={ (e)=> setEmail(e.target.value)} />
-      <input type="phone" name="phone" value={phone} onChange={ (e)=> setPhone(e.target.value)} />
-      </div>
-
-      <div>
-      <input type="number" name="nic" value={nic} onChange={ (e)=> setNic(e.target.value)} />
-      <input type="Date" name="dob" value={dob} onChange={ (e)=> setDob(e.target.value)} />
-      </div>
-
-      <div>
-        <select value={gender} onChange={(e)=>setGender(e.target.value)}>
-          <option value="">Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-      <input type="password" name="password" value={password} onChange={ (e)=> setPassword(e.target.value)} />
-      </div>
-
-      <div
+    <>
+      <div className="container form-component register-form">
+        <h2>Sign Up</h2>
+        <p>Please Sign Up To Continue</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat culpa
+          voluptas expedita itaque ex, totam ad quod error?
+        </p>
+        <form onSubmit={handleRegistration}>
+          <div>
+            <input
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="number"
+              placeholder="Mobile Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              type="number"
+              placeholder="NIC"
+              value={nic}
+              onChange={(e) => setNic(e.target.value)}
+            />
+            <input
+              type={"date"}
+              placeholder="Date of Birth"
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+            />
+          </div>
+          <div>
+            <select value={gender} onChange={(e) => setGender(e.target.value)}>
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div
             style={{
               gap: "10px",
               justifyContent: "flex-end",
@@ -86,7 +126,7 @@ const Register = () => {
           >
             <p style={{ marginBottom: 0 }}>Already Registered?</p>
             <Link
-              to={"/login"}
+              to={"/signin"}
               style={{ textDecoration: "none", color: "#271776ca" }}
             >
               Login Now
@@ -95,14 +135,10 @@ const Register = () => {
           <div style={{ justifyContent: "center", alignItems: "center" }}>
             <button type="submit">Register</button>
           </div>
-      
-     </form>
+        </form>
+      </div>
+    </>
+  );
+};
 
-
-
-   </div>
-
-  )
-}
-
-export default Register
+export default Register;
