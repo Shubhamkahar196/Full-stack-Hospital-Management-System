@@ -10,6 +10,7 @@ import { IoPersonAddSharp } from "react-icons/io5";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import "../App.css"
 
 
 
@@ -18,7 +19,8 @@ import { useNavigate } from "react-router-dom";
 const Sidebar = () => {
 const [show, setShow] = useState(false);
 
-const [isAuthenticated, setIsAuthenticated] = useContext(Context);
+const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+
 
 
 
