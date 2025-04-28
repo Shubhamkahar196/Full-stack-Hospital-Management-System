@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 const Messages = () => {
   const [messages, setMessages] = useState([]);
   const { isAuthenticated } = useContext(Context);
+  
   useEffect(() => {
     const fetchMessages = async () => {
       try {
