@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import { Context } from "../main";
 import { Navigate } from "react-router-dom";
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);
   const { isAuthenticated } = useContext(Context);
-  
+
   useEffect(() => {
     const fetchMessages = async () => {
       try {
@@ -14,7 +15,7 @@ const Messages = () => {
           "http://localhost:4000/api/v1/message/getall",
           { withCredentials: true }
         );
-        setMessages(data.messages);
+        setMessages(data.message);
       } catch (error) {
         console.log(error.response.data.message);
       }
