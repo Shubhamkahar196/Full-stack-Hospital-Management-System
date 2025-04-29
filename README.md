@@ -8,7 +8,7 @@ Features
 - Patient Management: Register, view, update, and delete patient records
 - Doctor Management: Manage doctor profiles, schedules, and availability
 - Appointment Management: Schedule, view, and cancel appointments
-- User Authentication: Secure login and registration for doctors, staff, and administrators
+- User Authentication: Secure login and registration for doctors, and administrators
 - Role-based Access Control: Restrict access to sensitive data based on user roles
 
 Technology Stack
