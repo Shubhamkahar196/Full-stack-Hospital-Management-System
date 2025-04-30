@@ -58,8 +58,7 @@ const Register = () => {
         <h2>Sign Up</h2>
         <p>Please Sign Up To Continue</p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat culpa
-          voluptas expedita itaque ex, totam ad quod error?
+        By signing up, you agree to our terms and conditions
         </p>
         <form onSubmit={handleRegistration}>
           <div>
