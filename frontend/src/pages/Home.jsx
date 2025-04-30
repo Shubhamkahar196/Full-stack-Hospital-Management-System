@@ -9,7 +9,7 @@ const Home = () => {
    <>
 
 
-   <Hero title={"Welcome to MCMT Medical Institute"} imageUrl={"/hero.png"}/>
+   <Hero title={"Welcome to ZEE CARE Medical Institute"} imageUrl={"/hero.png"}/>
    <Biography imageUrl={"/about.png"}/>
    <Departments/>
    <MessageForm/>
