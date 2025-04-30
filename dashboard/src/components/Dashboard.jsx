@@ -81,9 +81,8 @@ const Dashboard = () => {
                 </h5>
               </div>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Facilis, nam molestias. Eaque molestiae ipsam commodi neque.
-                Assumenda repellendus necessitatibus itaque.
+              Welcome to your dashboard, where you can manage appointments and view important information.
+
               </p>
             </div>
           </div>
