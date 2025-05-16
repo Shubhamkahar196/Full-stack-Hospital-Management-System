@@ -12,7 +12,7 @@ Features
 - Role-based Access Control: Restrict access to sensitive data based on user roles
 
 Technology Stack
-- Frontend: React.js, Bootstrap, CSS
+- Frontend: React.js,  CSS
 - Backend: Node.js, Express.js
 - Database: MongoDB
 - Authentication: JSON Web Tokens (JWT)
@@ -21,7 +21,7 @@ Installation
 1. Clone the repository: https://github.com/Shubhamkahar196/Full-stack-Hospital-Management-System
 2. Install dependencies: npm install
 3. Start the backend server: npm run server
-4. Start the frontend development server: npm run client
+4. Start the frontend development server: npm run dev
 
 API Endpoints
 - /api/v1/patients: Patient management endpoints
