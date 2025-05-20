@@ -123,7 +123,7 @@ const Dashboard = () => {
                               ? "value-pending"
                               : appointment.status === "Accepted"
                               ? "value-accepted"
-                              : "value-rejected"
+                              : "value-cancellation"
                           }
                           value={appointment.status}
                           onChange={(e) =>
@@ -136,8 +136,8 @@ const Dashboard = () => {
                           <option value="Accepted" className="value-accepted">
                             Accepted
                           </option>
-                          <option value="Rejected" className="value-rejected">
-                            Rejected
+                          <option value="cancellation" className="value-cancellation">
+                            cancellation
                           </option>
                         </select>
                       </td>

@@ -269,7 +269,7 @@ body {
 .dashboard .banner table .value-accepted {
   color: #16a34a;
 }
-.dashboard .banner table .value-rejected {
+.dashboard .banner table .value-cancellation {
   color: #dc2626;
 }
 .dashboard .banner table thead {
@@ -467,7 +467,7 @@ body {
 }
 
 .messages h1 {
-  color: #3939d9f2;
+  color: red;
   margin-bottom: 30px;
   font-size: 2.3rem;
 }
