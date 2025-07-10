@@ -1,6 +1,6 @@
 
 
-Hospital Management System
+Hospital Management System project
 
 A comprehensive Hospital Management System built using the MERN (MongoDB, Express.js, React.js, Node.js) stack.
 
